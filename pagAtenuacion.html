@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="style.css"/>
-		<title>Calculadora</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <script type="text/javascript" src="js/script.js"></script>
+		<title>Atenuaci&oacute;n</title>
 	</head>
     <body>
-    	<a href="index.html">Atrás</a>
+    	<a class="boton" href="index.html"><img src="img/botones/atraspeq.png" /></a>
+        <h1 align="center">Convertidor de Potencia</h1>
+        <table align="center" border="0">
+        	<tr>
+            	<td colspan="2">
+                	<b>Transformar mW en dBm</b>
+              	</td>
+           	</tr>
+            <tr>
+            	<td>
+                	<input type="text" id="txtMWaDBM" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+              	</td>
+                <td>
+                	<p class="botonCorto" onClick="calcMWaDBM();">mW a dBm</p>
+                    <script type="text/javascript">
+						function calcMWaDBM() {
+							document.getElementById("resultadoMWaDBM").value = calcularMWaDBM() + " dB";
+						}
+					</script>
+               	</td>
+           	</tr>
+            <tr>
+            	<td colspan="2">
+                	<input type="text" id="resultadoMWaDBM" value="0" disabled style="text-align:right">
+                    <hr>
+              	</td>
+          	</tr>
+            <tr>
+            	<td colspan="2">
+                	<b>Transformar dBm a mW</b>
+              	</td>
+           	</tr>
+           	<tr>
+            	<td>
+                	<input type="text" id="txtDBMaMW" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+               	</td>
+                <td>
+                	<p class="botonCorto" onClick="calcDBMaMW();">dBm a mW</p>
+    			</td>
+          	</tr>
+            <tr>
+            	<td colspan="2">
+                	<input type="text" id="resultadoDBMaMW" value="0" disabled style="text-align:right">
+                    <hr>
+              	</td>
+          	</tr>
+		</table>
     </body>
 </html>

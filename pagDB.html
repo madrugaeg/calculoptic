@@ -1,10 +1,98 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="style.css"/>
-		<title>Calculadora</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <script type="text/javascript" src="js/script.js"></script>
+		<title>Presupuesto &Oacute;ptico</title>
 	</head>
     <body>
-    	<a href="index.html">Atrás</a>
+    	<a class="boton" href="index.html"><img src="img/botones/atrasPeq.png" /></a>
+        <h1 align="center">Presupuesto &Oacute;ptico</h1>
+        <table border="0" align="center">
+        	<tr>
+            	<td>
+                	Cantidad Conectores:
+              	</td>
+                <td>
+                	<input type="text" id="txtCantConectores" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+               	</td>
+        	</tr>
+            <tr>
+            	<td>
+                	Cantidad Empalmes:
+              	</td>
+                <td>
+                	<input type="text" id="txtCantEmpalmes" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+               	</td>
+        	</tr>
+            <tr>
+            	<td>
+                	Long. Cable en KM:
+              	</td>
+                <td>
+                	<input type="text" id="txtLongCable" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+               	</td>
+        	</tr>
+            <tr>
+            	<td>
+                	Splitters 1:2 :
+              	</td>
+                <td>
+                	<input type="text" id="txtSplitters12" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+               	</td>
+        	</tr>
+            <tr>
+            	<td>
+                	Splitters 1:4 :
+              	</td>
+                <td>
+                	<input type="text" id="txtSplitters14" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+               	</td>
+        	</tr>
+            <tr>
+            	<td>
+                	Splitters 1:8 :
+              	</td>
+                <td>
+                	<input type="text" id="txtSplitters18" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+               	</td>
+        	</tr>
+            <tr>
+            	<td>
+                	Splitters 1:16 :
+              	</td>
+                <td>
+                	<input type="text" id="txtSplitters116" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+               	</td>
+        	</tr>
+            <tr>
+            	<td>
+                	Splitters 1:32 :
+              	</td>
+                <td>
+                	<input type="text" id="txtSplitters132" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+               	</td>
+        	</tr>
+            <tr>
+            	<td colspan="2">
+                    <p class="botonLargo" onClick="calcular();">Calcular</p>
+					<script type="text/javascript">
+						function calcular() {
+							document.getElementById("txtResultado").value = calcularDB() + " dB";
+						}
+					</script>
+              	</td>
+          	</tr>
+            <tr align="center">
+            	<td colspan="2">
+					<b>Presupuesto &Oacute;ptico Total</b>
+               	</td>
+            </tr>
+            <tr align="center">
+            	<td colspan="2">
+					<input type="text"  value="0" id="txtResultado" disabled style="text-align:right">                	
+               	</td>
+			</tr>
+     	</table>
     </body>
 </html>

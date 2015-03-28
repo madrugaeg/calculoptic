@@ -1,10 +1,78 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <script type="text/javascript" src="js/script.js"></script>
 		<title>Calculadora</title>
 	</head>
     <body>
-    	<a href="index.html">Atrás</a>
+    	<a class="boton" href="index.html"><img src="img/botones/atrasPeq.png" /></a>
+        <h1 align="center">Calculadora</h1>
+        <table border="0" align="center">
+        	<tr>
+            	<td colspan="2">
+                	Indices de Refracci&oacute;n
+               	</td>
+      		</tr>
+            <tr>
+            	<td>
+                	<b>N1</b>
+             	</td>
+              	<td>
+                	<input type="text" id="txtN1" value="0" onClick="this.value = ''" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+              	</td>
+          	</tr>
+            <tr>
+            	<td>
+	               <b>N2</b>
+    			</td>
+                <td>
+                	<input type="text" id="txtN2" value="0" onClick="this.value = ''" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+               	</td>
+         	</tr>
+            <tr align="center">
+            	<td colspan="2">
+                	<p class="botonLargo" onClick="calcularIndices();">Calcular</p>
+                    <br>
+                    <script type="text/javascript">
+						function calcularIndices() {
+							txtN1 = document.getElementById("txtN1").value;
+							txtN2 = document.getElementById("txtN2").value;
+							if(txtN1 > txtN2){
+								document.getElementById("txtAnguloCritico").value = calcularAC(); 
+								document.getElementById("txtAperturaNumerica").value = calcularAN();
+								document.getElementById("txtAnguloAceptacion").value = calcularAA();
+							} else {
+								alert("N1 debe ser mayor que N2");
+							}
+						}
+					</script>
+              	</td>
+           	</tr>
+            <tr>
+            	<td>
+                	&Aacute;ngulo Cr&iacute;tico:
+              	</td>
+                <td>
+                	<input type="text" id="txtAnguloCritico" value="0" disabled style="text-align:right" size="10">
+             	</td>
+         	</tr>
+            <tr>
+            	<td>
+                	Apertura Num&eacute;rica
+             	</td>
+                <td>
+                	<input type="text" id="txtAperturaNumerica" value="0" disabled style="text-align:right" size="10">
+               	</td>
+          	</tr>
+            <tr>
+            	<td>
+                	&Aacute;ngulo de Aceptaci&oacute;n
+               	</td>
+                <td>
+                	<input type="text" id="txtAnguloAceptacion" value="0" disabled style="text-align:right" size="10">
+               	</td>
+          	</tr>
+    	</table>
     </body>
 </html>
