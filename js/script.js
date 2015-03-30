@@ -19,10 +19,21 @@
 		var txtAnguloAceptacion = 0;
 		
 		var txtMWaDBM = 0;
+		var txtDBMaMW = 0;
+		var txtDBin = 0;
+		var txtDBout = 0;
+		var txtMWin = 0;
+		var txtMWout = 0;
+		
+		var cableSeleccionado = 0;
+		var txtFibra = 0;
+		var colorFibra = 0;
+		var colorTubo = 0;
+		var fibrasXtubo = 0;
 
 function validarSiNumero(numero, id){
     if (!/^\d+\.?\d*$/.test(numero)){
-		alert("El valor " + numero + " no es un número");
+		alert("El valor " + numero + " no es un n\xfamero");
 	} else {
 		if(id == "txtCantConectores") {
 			txtCantConectores = numero;
@@ -54,8 +65,32 @@ function validarSiNumero(numero, id){
 		if(id == "txtN2") {
 			txtN2 = numero;
 		}
-		if(id == "txtMWaDBM") {
+		if(id == "txtFibra") {
+			txtFibra = numero;
+		}
+	}
+}
+function validarSiNumeroReal(numero, id){
+	 if (!/^-?\d+(\.\d+)?$/.test(numero)){
+		alert("El valor " + numero + " no es un n\xfamero");
+	} else {
+			if(id == "txtMWaDBM") {
 			txtMWaDBM = numero;
+		}
+		if(id == "txtDBMaMW") {
+			txtDBMaMW = numero;
+		}
+		if(id == "txtDBin") {
+			txtDBin = numero;
+		}
+		if(id == "txtDBout") {
+			txtDBout = numero;
+		}
+		if(id == "txtMWin") {
+			txtMWin = numero;
+		}
+		if(id == "txtMWout") {
+			txtMWout = numero;
 		}
 	}
 }
@@ -91,3 +126,20 @@ function calcularMWaDBM() {
 	var MWaDBM = (10 * (Math.log(txtMWaDBM) / (Math.log(10)) ));
 	return (Math.round(MWaDBM * 100) / 100);
 }
+
+function calcularDBMaMW() {
+	var DBMaMW = ( Math.pow(10, (txtDBMaMW / 10) ) );
+	return (Math.round(DBMaMW * 100) / 100);
+}
+
+function calcularAtenDB() {
+	var atenDB = txtDBout - txtDBin;
+	return atenDB;
+}
+
+function calcularGanancia() {
+	var ganancia = txtMWout / txtMWin;
+	return (Math.round(ganancia * 1000000) / 1000000);;
+}
+
+//Ventana Codigo de Colores

@@ -1,10 +1,281 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="style.css"/>
-		<title>Calculadora</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <script type="text/javascript" src="js/script.js"></script>
+		<title>C&oacute;digo de Colores</title>
 	</head>
-    <body>
-    	<a href="index.html">Atrás</a>
+    <body background="img/fondo/fondo.jpeg">
+    	<a class="boton" href="index.html"><img src="img/botones/atrasPeq.png"/></a>
+        <h1 align="center"><font color="#FFFFFF">C&oacute;digo de Colores</font></h1>
+        <table align="center" border="0" bgcolor="#FFFFFF">
+        	<tr align="center">
+            	<td colspan="2">
+                	<b>Seleccione Cable</b>
+              	</td>
+          	</tr>
+            <tr align="left" valign="top">
+            	<td>
+                	<input type="radio" value="8" name="cable" id="cable8" /> 8
+                    <br>
+					<input type="radio" value="24" name="cable" id="cable24"/> 24
+                    <br>
+					<input type="radio" value="64" name="cable" id="cable64"/> 64
+                </td>
+                <td>
+                    <input type="radio" value="128" name="cable" id="cable128"/> 128
+                    <br>
+					<input type="radio" value="256" name="cable" id="cable256"/> 256
+				</td>
+        	</tr>
+            <tr align="center">
+            	<td colspan="2">
+                	<b>Ingrese el n&uacute;mero de Fibra</b>
+               	</td>
+           	</tr>
+            <tr>
+            	<td>
+                	<input type="text" id="txtFibra" value="0" onClick="this.value = ''" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+             	</td>
+                <td>
+                	<p class="botonCorto" onClick="calcColor();">Calcular</p>
+                    <script type="text/javascript">
+						function calcColor(){
+							//Verificar cual radiobutton a sido seleccionado
+							if(document.getElementById("cable8").checked) {
+								cableSeleccionado = 8;
+								fibrasXtubo = 2;
+							}
+							if(document.getElementById("cable24").checked) {
+								cableSeleccionado = 24;
+								fibrasXtubo = 4;
+							}
+							if(document.getElementById("cable64").checked) {
+								cableSeleccionado = 64;
+								fibrasXtubo = 8;
+							}
+							if(document.getElementById("cable128").checked) {
+								cableSeleccionado = 128;
+								fibrasXtubo = 8;
+							}
+							if(document.getElementById("cable256").checked) {
+								cableSeleccionado = 256;
+								fibrasXtubo = 16;
+							}
+							//Calcular el color de la tubo y fibra
+							if(txtFibra > cableSeleccionado) {
+								colorFibra = 0;
+								colorTubo = 0;
+								alert("La fibra " + txtFibra + " no existe en este cable.");
+							} else {
+								var result = Math.floor( (txtFibra / fibrasXtubo) );
+								var resto = (txtFibra % fibrasXtubo);
+								if(resto == 0) {
+									colorTubo = result;
+									colorFibra = fibrasXtubo;
+								} else {
+									colorTubo = result + 1; 
+									colorFibra = resto;
+								}	
+							}
+							
+							//Asignar el color y texto correspondiente a textbox
+							if(colorTubo == 0) {
+								document.getElementById("colorTubo").style.color = "#FFFFFF";
+								document.getElementById("colorTubo").value = "";
+								document.getElementById("colorTubo").style.backgroundColor = "#FFFFFF";
+							}
+							if(colorFibra == 0) {
+								document.getElementById("colorFibra").style.color = "#FFFFFF";
+								document.getElementById("colorFibra").value = "";
+								document.getElementById("colorFibra").style.backgroundColor = "#FFFFFF";
+							}
+							if(colorTubo == 1) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "Blanco";
+								document.getElementById("colorTubo").style.backgroundColor = "#FFFFFF";
+							}
+							if(colorTubo == 2) {
+								document.getElementById("colorTubo").style.color = "#FFFFFF";
+								document.getElementById("colorTubo").value = "Azul";
+								document.getElementById("colorTubo").style.backgroundColor = "#0000FF";
+							}
+							if(colorTubo == 3) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "Amarillo";
+								document.getElementById("colorTubo").style.backgroundColor = "#FFFF00";
+							}
+							if(colorTubo == 4) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "Rojo";
+								document.getElementById("colorTubo").style.backgroundColor = "#FF0000";
+							}
+							if(colorTubo == 5) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "Verde";
+								document.getElementById("colorTubo").style.backgroundColor = "#00FF00";
+							}
+							if(colorTubo == 6) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "Anaranjado";
+								document.getElementById("colorTubo").style.backgroundColor = "#FF8000";
+							}
+							if(colorTubo == 7) {
+								document.getElementById("colorTubo").style.color = "#FFFFFF";
+								document.getElementById("colorTubo").value = "Violeta";
+								document.getElementById("colorTubo").style.backgroundColor = "#8000FF";
+							}
+							if(colorTubo == 8) {
+								document.getElementById("colorTubo").style.color = "#FFFFFF";
+								document.getElementById("colorTubo").value = "Marr\xf3n";
+								document.getElementById("colorTubo").style.backgroundColor = "#64463C";
+							}
+							if(colorTubo == 9) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "Gris";
+								document.getElementById("colorTubo").style.backgroundColor = "#989898";
+							}
+							if(colorTubo == 10) {
+								document.getElementById("colorTubo").style.color = "#FFFFFF";
+								document.getElementById("colorTubo").value = "Negro";
+								document.getElementById("colorTubo").style.backgroundColor = "#000000";
+							}
+							if(colorTubo == 11) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "***Blanco***";
+								document.getElementById("colorTubo").style.backgroundColor = "#FFFFFF";
+							}
+							if(colorTubo == 12) {
+								document.getElementById("colorTubo").style.color = "#FFFFFF";
+								document.getElementById("colorTubo").value = "***Azul***";
+								document.getElementById("colorTubo").style.backgroundColor = "#0000FF";
+							}
+							if(colorTubo == 13) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "***Amarillo***";
+								document.getElementById("colorTubo").style.backgroundColor = "#FFFF00";
+							}
+							if(colorTubo == 14) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "***Rojo***";
+								document.getElementById("colorTubo").style.backgroundColor = "#FF0000";
+							}
+							if(colorTubo == 15) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "***Verde***";
+								document.getElementById("colorTubo").style.backgroundColor = "#00FF00";
+							}
+							if(colorTubo == 16) {
+								document.getElementById("colorTubo").style.color = "#000000";
+								document.getElementById("colorTubo").value = "**Anaranjado**";
+								document.getElementById("colorTubo").style.backgroundColor = "#FF8000";
+							}	
+							
+							if(colorFibra == 1) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "Blanco";
+								document.getElementById("colorFibra").style.backgroundColor = "#FFFFFF";
+							}
+							if(colorFibra == 2) {
+								document.getElementById("colorFibra").style.color = "#FFFFFF";
+								document.getElementById("colorFibra").value = "Azul";
+								document.getElementById("colorFibra").style.backgroundColor = "#0000FF";
+							}
+							if(colorFibra == 3) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "Amarillo";
+								document.getElementById("colorFibra").style.backgroundColor = "#FFFF00";
+							}
+							if(colorFibra == 4) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "Rojo";
+								document.getElementById("colorFibra").style.backgroundColor = "#FF0000";
+							}
+							if(colorFibra == 5) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "Verde";
+								document.getElementById("colorFibra").style.backgroundColor = "#00FF00";
+							}
+							if(colorFibra == 6) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "Anaranjado";
+								document.getElementById("colorFibra").style.backgroundColor = "#FF8000";
+							}
+							if(colorFibra == 7) {
+								document.getElementById("colorFibra").style.color = "#FFFFFF";
+								document.getElementById("colorFibra").value = "Violeta";
+								document.getElementById("colorFibra").style.backgroundColor = "#8000FF";
+							}
+							if(colorFibra == 8) {
+								document.getElementById("colorFibra").style.color = "#FFFFFF";
+								document.getElementById("colorFibra").value = "Marr\xf3n";
+								document.getElementById("colorFibra").style.backgroundColor = "#64463C";
+							}
+							if(colorFibra == 9) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "Gris";
+								document.getElementById("colorFibra").style.backgroundColor = "#989898";
+							}
+							if(colorFibra == 10) {
+								document.getElementById("colorFibra").style.color = "#FFFFFF";
+								document.getElementById("colorFibra").value = "Negro";
+								document.getElementById("colorFibra").style.backgroundColor = "#000000";
+							}
+							if(colorFibra == 11) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "Rosado";
+								document.getElementById("colorFibra").style.backgroundColor = "#F7BFBE";
+							}
+							if(colorFibra == 12) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "Celeste";
+								document.getElementById("colorFibra").style.backgroundColor = "#0CB7F2";
+							}
+							if(colorFibra == 13) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "***Blanco***";
+								document.getElementById("colorFibra").style.backgroundColor = "#FFFFFF";
+							}
+							if(colorFibra == 14) {
+								document.getElementById("colorFibra").style.color = "#FFFFFF";
+								document.getElementById("colorFibra").value = "***Azul***";
+								document.getElementById("colorFibra").style.backgroundColor = "#0000FF";
+							}
+							if(colorFibra == 15) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "***Amarillo***";
+								document.getElementById("colorFibra").style.backgroundColor = "#FFFF00";
+							}
+							if(colorFibra == 16) {
+								document.getElementById("colorFibra").style.color = "#000000";
+								document.getElementById("colorFibra").value = "***Rojo***";
+								document.getElementById("colorFibra").style.backgroundColor = "#FF0000";
+							}
+						}
+					</script>
+                </td>
+          	</tr>
+            <tr>
+            	<td colspan="2">
+                	<hr>
+               	</td>
+           	</tr>
+            <tr>
+            	<td>
+                	Color de Tubo
+               	</td>
+                <td>
+               		<input type="text" id="colorTubo" style="background-color:#FFFFFF; text-align:center" size="10" disabled>
+          		</td>
+          	</tr>
+            <tr>
+                <td>
+                	Color de Fibra
+               	</td>
+                <td>
+                	<input type="text" id="colorFibra" style="background-color:#FFFFFF; text-align:center" size="10" disabled>
+               	</td>
+        	</tr>
+    	</table>
     </body>
 </html>

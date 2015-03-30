@@ -5,18 +5,18 @@
         <script type="text/javascript" src="js/script.js"></script>
 		<title>Atenuaci&oacute;n</title>
 	</head>
-    <body>
+    <body background="img/fondo/fondo.jpeg">	
     	<a class="boton" href="index.html"><img src="img/botones/atraspeq.png" /></a>
-        <h1 align="center">Convertidor de Potencia</h1>
-        <table align="center" border="0">
-        	<tr>
+        <h1 align="center"><font color="#FFFFFF">Convertidor de Potencia</font></h1>
+        <table align="center" border="0" bgcolor="#FFFFFF">
+        	<tr align="center">
             	<td colspan="2">
                 	<b>Transformar mW en dBm</b>
               	</td>
            	</tr>
             <tr>
             	<td>
-                	<input type="text" id="txtMWaDBM" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+                	<input type="text" id="txtMWaDBM" onClick="this.value = ''" value="0" onChange="validarSiNumeroReal(this.value, this.id);" style="text-align:right" size="10">
               	</td>
                 <td>
                 	<p class="botonCorto" onClick="calcMWaDBM();">mW a dBm</p>
@@ -33,23 +33,101 @@
                     <hr>
               	</td>
           	</tr>
-            <tr>
+            <tr align="center">
             	<td colspan="2">
                 	<b>Transformar dBm a mW</b>
               	</td>
            	</tr>
            	<tr>
             	<td>
-                	<input type="text" id="txtDBMaMW" onClick="this.value = ''" value="0" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
+                	<input type="text" id="txtDBMaMW" onClick="this.value = ''" value="0" onChange="validarSiNumeroReal(this.value, this.id);" style="text-align:right" size="10">
                	</td>
                 <td>
                 	<p class="botonCorto" onClick="calcDBMaMW();">dBm a mW</p>
+                    <script type="text/javascript">
+						function calcDBMaMW() {
+							document.getElementById("resultadoDBMaMW").value = calcularDBMaMW() + " mW";	
+						}
+					</script>
     			</td>
           	</tr>
             <tr>
             	<td colspan="2">
                 	<input type="text" id="resultadoDBMaMW" value="0" disabled style="text-align:right">
                     <hr>
+              	</td>
+          	</tr>
+            <tr align="center">
+            	<td colspan="2">
+                	<b>Atenuaci&oacute;n en dB</b>
+              	</td>
+          	</tr>
+            <tr>
+            	<td>
+                	Potencia de Entrada en dB
+              	</td>
+                <td>
+                	<input type="text" id="txtDBin" onClick="this.value = ''" value="0" onChange="validarSiNumeroReal(this.value, this.id);" style="text-align:right" size="10">
+              	</td>
+         	</tr>
+            <tr>
+            	<td>
+                	Potencia de Salida en dB
+              	</td>
+                <td>
+                	<input type="text" id="txtDBout" onClick="this.value = ''" value="0" onChange="validarSiNumeroReal(this.value, this.id);" style="text-align:right" size="10">
+              	</td>
+         	</tr>
+            <tr>
+            	<td>
+                	<p class="botonCorto" onClick="calcAtenDB();">Calcular</p>
+                    <script type="text/javascript">
+						function calcAtenDB() {
+							document.getElementById("resulAtenDB").value = calcularAtenDB() + " dB";
+						}
+					</script>
+             	</td>
+                <td>
+                	<p><input type="text" id="resulAtenDB" value="0" disabled style="text-align:right" size="10"></p>
+              	</td>
+          	</tr>
+            <tr>
+            	<td colspan="2">
+                	<hr>
+               	</td>
+          	</tr>
+            <tr align="center">
+            	<td colspan="2">
+                	<b>Ganancia lineal</b>
+               	</td>
+           	</tr>
+            <tr>
+            	<td>
+                	Potencia de Entrada en mW
+              	</td>
+                <td>
+                	<input type="text" id="txtMWin" onClick="this.value = ''" value="0" onChange="validarSiNumeroReal(this.value, this.id);" style="text-align:right" size="10">
+              	</td>
+         	</tr>
+            <tr>
+            	<td>
+                	Potencia de Salida en mW
+              	</td>
+                <td>
+                	<input type="text" id="txtMWout" onClick="this.value = ''" value="0" onChange="validarSiNumeroReal(this.value, this.id);" style="text-align:right" size="10">
+              	</td>
+         	</tr>
+            <tr>
+            	<td>
+                	<p class="botonCorto" onClick="calcGanancia();">Calcular</p>
+                    <script type="text/javascript">
+						function calcGanancia() {
+							document.getElementById("resulGanancia").value = calcularGanancia();
+						}
+					</script>
+             	</td>
+                <td>
+                	<p><input type="text" id="resulGanancia" value="0" disabled style="text-align:right" size="10"></p>
               	</td>
           	</tr>
 		</table>

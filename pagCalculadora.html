@@ -5,34 +5,30 @@
         <script type="text/javascript" src="js/script.js"></script>
 		<title>Calculadora</title>
 	</head>
-    <body>
+    <body background="img/fondo/fondo.jpeg">
     	<a class="boton" href="index.html"><img src="img/botones/atrasPeq.png" /></a>
-        <h1 align="center">Calculadora</h1>
-        <table border="0" align="center">
-        	<tr>
+        <h1 align="center"><font color="#FFFFFF">Calculadora</font></h1>
+        <table border="0" align="center" bgcolor="#FFFFFF">
+        	<tr align="center">
             	<td colspan="2">
-                	Indices de Refracci&oacute;n
+                	<b>Indices de Refracci&oacute;n</b>
                	</td>
       		</tr>
             <tr>
-            	<td>
+            	<td align="right">
                 	<b>N1</b>
+                    <input type="text" id="txtN1" value="0" onClick="this.value = ''" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
              	</td>
-              	<td>
-                	<input type="text" id="txtN1" value="0" onClick="this.value = ''" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
-              	</td>
           	</tr>
             <tr>
-            	<td>
+            	<td align="right">
 	               <b>N2</b>
+                   <input type="text" id="txtN2" value="0" onClick="this.value = ''" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
     			</td>
-                <td>
-                	<input type="text" id="txtN2" value="0" onClick="this.value = ''" onChange="validarSiNumero(this.value, this.id);" style="text-align:right" size="10">
-               	</td>
          	</tr>
             <tr align="center">
             	<td colspan="2">
-                	<p class="botonLargo" onClick="calcularIndices();">Calcular</p>
+                	<p class="botonCorto" onClick="calcularIndices();">Calcular</p>
                     <br>
                     <script type="text/javascript">
 						function calcularIndices() {
