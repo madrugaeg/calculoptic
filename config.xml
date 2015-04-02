@@ -14,7 +14,8 @@ Calculadora para Fibra Óptica
 Esteban Madruga
 </author>
 
-<icon src="img/icon/icon.png" />
-<gap:splash src="img/icon/splash.png" />
+<icon src="icon.png" />
+
+<gap:splash src="splash.png" />
 
 </widget>
