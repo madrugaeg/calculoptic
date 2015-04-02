@@ -4,14 +4,17 @@
     id        = "com.phonegap.example"
     version   = "1.0.0">
 
-<name>PhoneGap Build Application</name>
+<name>Calculoptic</name>
 
 <description>
-A simple PhoneGap Build application.
+Calculadora para Fibra Óptica
 </description>
 
-<author href="https://example.com" email="you@example.com">
-Your Name
+<author href="http://emadruga.jimdo.com" email="madrugaeg@gmail.com">
+Esteban Madruga
 </author>
+
+<icon src="img/icon/icon.png" />
+<gap:splash src="img/icon/splash.png" />
 
 </widget>
